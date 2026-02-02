@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gamesList.innerHTML = '<p>Loading MLB games...</p>';
 
     try {
-      const today = '2025-04-05'; //new Date().toISOString().split('T')[0]; // "2026-02-01" format
+      const today = new Date().toISOString().split('T')[0]; // "2026-02-01" format
       const scheduleUrl = `https://statsapi.mlb.com/api/v1/schedule?hydrate=team,venue&sportId=1&date=${today}`;
       const scheduleResponse = await fetch(scheduleUrl);
       if (!scheduleResponse.ok) throw new Error('Schedule fetch failed');
